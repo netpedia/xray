@@ -43,18 +43,18 @@ server {
   index index.html;
   root /usr/share/nginx/html/;
   
-  location / {
-      if ($http_upgrade != "Upgrade") {
-        rewrite /(.*) /vmess break;
+  location / { # Consistent with anything path dir
+      if ($http_upgrade != "Upgrade") { # Rewrite Succesfull Websocket Upgrade  with the path of V2Ray configuration
+        rewrite /(.*) /ray break;
       }
       proxy_redirect off;
       proxy_pass http://127.0.0.1:10086;
       proxy_http_version 1.1;
-      proxy_set_header X-Real-IP $remote_addr;
-      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
       proxy_set_header Upgrade $http_upgrade;
       proxy_set_header Connection "upgrade";
       proxy_set_header Host $http_host;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     }
 
   location /ray { # Consistent with the path of V2Ray configuration
@@ -62,12 +62,11 @@ server {
           return 404;
       }
       proxy_redirect off;
-      proxy_pass http://127.0.0.1:10086; # Assume WebSocket is listening at localhost on port of 10000
+      proxy_pass http://127.0.0.1:10086;
       proxy_http_version 1.1;
       proxy_set_header Upgrade $http_upgrade;
       proxy_set_header Connection "upgrade";
       proxy_set_header Host $host;
-      # Show real IP in v2ray access.log
       proxy_set_header X-Real-IP $remote_addr;
       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
   }
