@@ -48,7 +48,7 @@ server {
         rewrite /(.*) /vmess break;
       }
       proxy_redirect off;
-      proxy_pass http://127.0.0.1:10086;
+      proxy_pass http://172.18.0.39:10086;
       proxy_http_version 1.1;
       proxy_set_header Upgrade $http_upgrade;
       proxy_set_header Connection "upgrade";
@@ -62,7 +62,7 @@ server {
           return 404;
       }
       proxy_redirect off;
-      proxy_pass http://127.0.0.1:10086;
+      proxy_pass http://172.18.0.39:10086;
       proxy_http_version 1.1;
       proxy_set_header Upgrade $http_upgrade;
       proxy_set_header Connection "upgrade";
