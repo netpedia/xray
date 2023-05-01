@@ -1,5 +1,7 @@
 # xray
-xray installation
+Server installation :
+1. [XRay](https://github.com/XTLS/Xray-core) [Docker Hub](https://hub.docker.com/r/teddysun/xray)
+2. [SNI](https://github.com/boychongzen18/Bug-Host-All-Operator)
 
 ## Install Xray
 ### Docker
