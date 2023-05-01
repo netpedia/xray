@@ -45,7 +45,7 @@ server {
   
   location / { # Consistent with anything path dir
       if ($http_upgrade != "Upgrade") { # Rewrite Succesfull Websocket Upgrade  with the path of V2Ray configuration
-        rewrite /(.*) /ray break;
+        rewrite /(.*) /vmess break;
       }
       proxy_redirect off;
       proxy_pass http://127.0.0.1:10086;
@@ -57,7 +57,7 @@ server {
       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     }
 
-  location /ray { # Consistent with the path of V2Ray configuration
+  location /vmess { # Consistent with the path of V2Ray configuration
       if ($http_upgrade != "websocket") { # Return 404 error when WebSocket upgrading negotiate failed
           return 404;
       }
