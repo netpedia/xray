@@ -3,6 +3,11 @@ Server installation :
 1. [XRay](https://github.com/XTLS/Xray-core) [Docker Hub](https://hub.docker.com/r/teddysun/xray)
 2. [SNI](https://github.com/boychongzen18/Bug-Host-All-Operator)
 
+Client app:
+1. [Qv2ray](https://github.com/Shadowsocks-NET/Qv2ray)
+2. [NekoRay](https://github.com/MatsuriDayo/nekoray)
+3. [V2Ray Core](https://github.com/v2fly/v2ray-core)
+
 ## Install Xray
 ### Docker
 run xray docker
