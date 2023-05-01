@@ -1,12 +1,20 @@
 # xray
-xray
+xray installation
 
-
+## Docker
+run xray docker
 ```sh
 docker run -d --net iteungwebnet --ip 172.18.0.39 --name xray -v /home/docker/xray:/etc/xray -p 10086:10086 teddysun/xray
 ```
+docker command list
+```sh
+docker ps -a | grep v2ray
+docker restart v2ray
+docker logs v2ray
+docker exec -ti v2ray sh
+```
 
-
+## Configuration
 config.json
 ```json
 {
